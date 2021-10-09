@@ -1,0 +1,9 @@
+数据类型:
+
+    值类型:int float string bool array struct
+
+    引用型:slice point function map
+
+    结构体指针:
+         new(),创建的不是nil指针, 是开辟了一个内存地址 存储类型0值的指针.
+        来创建一个结构体的指针 来做操结构体的数据
