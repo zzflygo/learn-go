@@ -1,0 +1,63 @@
+gitup.com/trending
+hellogithub  中文项目推荐周刊
+github.com/521xueweihan/HelloGitHub
+
+搜索技巧
+找百科大全awesome xxx
+找例子 xxx sample
+找空项目架子 xxx starter / xxx boilerplate
+找教程 xxx tutorial
+
+1.提交commit
+2.仓库reprository
+3.分支branch
+
+git init 初始化仓库 
+
+
+1,在现在存储的目录 右键 git bash here
+2,git clone +链接地址
+3,vscode 打开项目
+
+.md文档协议 markdown
+
+LICENSE commit后缀的大部分保留作者版权信息,就能使用..别的格式的话 会有版权保护之类
+
+方法一 第一次提交
+git add -A
+git commit -m "提交信息"
+
+方法二:在vscode中右侧菜单栏分享图标
+1,暂存区中先提交那个文件 在后面点 + ,全部提交就 仓库菜单栏 +
+2,消息栏中输入备注信息 按ctrl+enter 就提交了
+
+查看提交的历史 
+git log --stat   //可以看到commit的哈希值.作者 时间 备注.
+
+git checkout +文件名.类型  //撤回上一版
+//在暂存区 点撤回图标
+
+git reset HEAD^ 提交回滚到工作区 
+//在COMMITS里面找到更改的..右键点击undo commit
+//然后再暂存区 点击 一  就会返回工作区
+git reset HEAD^1
+
+分支从当前节点新建分支
+git checkout -b <branchname>
+
+列举所有的分支
+git branch
+
+单纯地切换到某个分支
+git checkout <brachname>
+
+删除特定的分支
+git branch -D <branchname>
+
+合并分支
+git merge <branchname>
+git merge --abort 放弃这次合并 //在有冲突的时候使用,让别人在确定合并
+
+git puch //推送当前分支最新的提交到远程
+
+git pull//拉入远程分支最新的提交到本地
