@@ -58,7 +58,7 @@ git branch -D <branchname>
 git merge <branchname>
 git merge --abort 放弃这次合并 //在有冲突的时候使用,让别人在确定合并
 
-git puch //推送当前分支最新的提交到远程
+git push //推送当前分支最新的提交到远程
 
 git pull//拉入远程分支最新的提交到本地
 
