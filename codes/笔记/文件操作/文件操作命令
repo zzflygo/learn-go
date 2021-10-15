@@ -1,0 +1,32 @@
+os.Stat(absulute)获取文件信息
+    变量名.name() 变量名.Size() 变量名.Isdir() 变量名.Modtime() 变量名.Mod()//查看权限
+
+    获取文件绝对路径 filePath.Abs(文件名)
+    判断是否是绝对路径 filePath.IsAbs(变量)  //fileName:="D:/goland/codes/day5/file_open/main.go"
+    获取父目录 path.Join(fileName,"..") //..代表上一级
+
+创建目录(文件夹)
+  os.Mkdir   //只能创建一层文件夹
+  err := os.Mkdir("D:/goland/codes/day5/file_open/bb",os.ModePerm) //os.ModePerm = 0777 完全权限  
+ 
+  os.MkdirAll //能创建多层文件夹
+    //在bb下创建了dd/cc/ee 三层文件夹
+  err := os.MkdirAll("D:/goland/codes/day5/file_open/bb/dd/cc/ee",os.ModePerm) 
+  
+创建文件 :Create采用0666模式(任何人都可以读写,不可执行)
+  os.Create  // 创建一个新文件.如果文件名存在.则会把该文件截断(变为空文件)
+  file1,err := os.Create("D:/goland/codes/day5/file_open/bb/aa.txt") 
+    file1为指针*file1
+    fileName2 := "bb.tx"
+    file2,err := os.Create(fileName2) //不带地址为相对路径.在此时的包下
+
+  打开文件
+  err:=os_Open()
+  err:=os_OpenFile("名字","O_RDONLY|O_WRONLU","os_ModePerm")
+
+  关闭文件
+  file1.close()
+
+  
+
+

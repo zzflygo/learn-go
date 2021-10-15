@@ -1,0 +1,26 @@
+文件操作
+1.路径:
+    相对路径: relative
+        ab.txt
+        相对于当前工程
+    绝对路径:absolute
+        /Users/ruby/Documents/pro/a/aa.txt
+
+    ./ 当前目录
+    ../ 上层    
+
+    os.Stat(绝对路径absolute)返回2个数值 一个*File.Stat结构体 一个err得到文件的信息
+
+    fileInfo , err := os.Stat(/Users/ruby/Documents/pro/a/aa.txt)
+
+    fileInfo.name()   //文件名字    
+    fileInfo.Size()   //文件所占字节大小  
+    fileInfo.Isdir()  //是否是目录
+    fileInfo.ModTime()//修改时间
+    fileInfo.Mod()   //权限  4 2 1 0 来表示所有者4 , 所在组2 , 当前1 , 0为没有权限
+                    // 文件用-表示 目录用d表示 r(可读) w(可写) x(可执行) -(没有权限)
+                    //r->004 w->002 r->001 - ->000
+                    //0755 0777 0555 0444
+
+ 文件路径                    
+

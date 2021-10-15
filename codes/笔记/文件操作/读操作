@@ -1,0 +1,30 @@
+day5/file_open
+
+
+io包操作.意义为input output
+文件操作步骤
+1.打开文件
+    os.Open(文件名) 
+    func Open(name string) (*File, error) {
+	return OpenFile(name, O_RDONLY, 0)
+}
+file , err := os.Open("D:/goland/codes/day5/file_open/main.go") 文件的绝对或者相对地址
+返回的file 是*File结构体.*File是Read方法
+2.读取文件
+var tmp [1024]byte   //常用1024 或倍数
+func (*os.File).Read(b []byte) (n int, err error) //File的方法需要一个byte数组
+//返回n为读取到的个数
+//在内存中会把读取到的value放进 [1024]tmp的数组中.并记录读到文件的位置
+//第二次读写时,再把之后n个value放进tmp中.
+//第三次读写时,重复一直到读取完毕.
+//在最后一次读写时n<1024 ,就把n个放进tmp中,此时tmp[:n]为新读取的,tmp[n+1:]为上一次的数据
+//所以在输出的时候一般fmt.Println(string(tmp[0:n]))
+//没有数据进行读写时 会返回n == 0 ,err == io.EOF 此时用return跳出循环
+方法1 var txt [1024]byte
+
+方法2 bufio.NewReader('\n') 按行读取
+
+os.Open("./main.go")->txt2->bufio.NewReader(txt2)->reader->reader.ReadString->line
+
+方法3 ioutil.ReadFile("文件地址") 返回[]byte
+iouitl.ReadFile(./main.go)->txt3([]bybe)-string(txt3)

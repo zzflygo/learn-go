@@ -1,0 +1,46 @@
+导入包
+import "fmt"
+// 1,绝对导入  go mod
+import (                           var (
+    "fmt"                              a int
+    "math"                             b string
+    "time"                             c bool 
+)                                      )
+约定
+1.go标准包
+2.第三方包
+3.本地包
+
+//2, 相对导入 gopath   ./xxx/xx 当前文件的相对路径
+
+//3, 点导入
+import(
+    . "fmt"   //声明之前加个点
+    . "github/zzflygo/textmath"
+)
+func main(){  //在不同包里有相同函数的情况下,会导致函数冲突 报错
+    Println("hello world") //可以省略前面的fmt.
+    Add(1,2)  //前面省略了textmath.Add(1,2)
+}
+//4, 别名导入
+import(
+    "fmt" 
+    gtextmach "github/zzflygo/textmach" //引用前面加个别名
+    "gotextmod/textmath"   //解决了包名重复的问题
+)
+//5, 下划线导入(包的初始化)
+import(
+     "fmt"   //声明之前加个点
+     gtextmach "github/zzflygo/textmath"
+     _ "gotexmod/textmath" //`_` 就是常用的忽略的意思
+     //引入包未使用的情况下 编译会报错.
+     //有些驱动包 要引入初始化 但不使用,此时用"_" 来占位.就不会报错
+     //编译时忽略此包
+)
+
+包的可见性
+1,首字母 大写 包外可见
+2,首字母 小写 包内可见 不能被外部调用
+
+变量也一样
+var T1name = "T1"  //首字母大写 包级别的变量 在包外可见.在包外也能更改

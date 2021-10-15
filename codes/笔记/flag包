@@ -1,0 +1,19 @@
+codes/day5/testos
+
+os.Args  原码var Args []string
+输入格式 在命令行输入main.exe 1 2 3 4 中间用空格隔开 
+
+**// 输入成这样的话 main.go 1,3,5,7 "1,3,5,7"会被认为是字符串
+[`C:\Users\zz\AppData\Local\Temp\go-build381017786\b001\exe\main.exe` `1,3,5,7`]
+**os.Args 是一个字符串切片.
+os.Args[0]里面储存着main函数的绝对路径
+["C:\\Users\\zz\\AppData\\Local\\Temp\\go-build889267942\\b001\\exe\\main.exe" "1" "2" "3" "4"]
+
+所以在使用的时候 赋值 args:=os.Args[1:] 除去0位的地址.只取后面的内容
+在使用数据的时候配合 strconv.Atoi 转化为int类型切片[]int
+    for _,v:=range args{
+        intValue , err = strconv.Atoi(v)
+        }
+
+flag包        
+
