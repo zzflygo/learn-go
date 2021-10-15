@@ -1,0 +1,17 @@
+useScan()
+
+logger.Trace()
+logger.Debug()
+logger.Warning()
+logger.Info()
+logger.error("日志的内容") //手动的配置日志写到哪里
+
+写日志
+fmt.Fprintln(os.Stdout,"这是一条日志")
+fileObj,_:=os.OpenFile(".\xxx.log",os.O_CREATE|os.O_WRONLY|os.O_APPEND,0644)
+fmt.Fprintln(fileObj,"只是一条日志")
+
+需求
+1.不同的输入位置记录日志
+2.日志分为5种级别
+
