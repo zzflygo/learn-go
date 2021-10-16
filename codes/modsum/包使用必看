@@ -1,0 +1,31 @@
+在同一个项目下
+moduledemo      
+├── go.mod                import "moduledemo/mypackage"
+├── main.go
+└── mypackage
+    └── mypackage.go
+
+└── bubble
+    ├── dao
+    │   └── mysql.go       import "bubble/dao"
+    ├── go.mod
+    └── main.go
+
+    只有根目录 main.go 下面需要执行 go mod init muduledemo
+
+    在mypackage下面不用..
+    improt "modulede/mypackage"  项目名称/调用函数所在的目录.
+
+
+在不同项目下,被引用包也也需要进行go mod init xxx
+
+├── p1
+│   ├── go.mod
+│   └── main.go
+└── p2
+    ├── dao
+       └── mysql.go
+
+并且在main.go包下.
+还要进行replace  "p2" => "../p2/dao" //相对目录
+
